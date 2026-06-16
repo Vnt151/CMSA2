@@ -19,7 +19,7 @@ cfg = config();
 % =========================================================================
 % Đặt kich_ban = 1 : Chạy mô phỏng mạng đơn đoạn (2 nút A và B chung đường Bus)
 % Đặt kich_ban = 2 : Chạy mô phỏng mạng đa đoạn (4 nút kết nối qua Router)
-kich_ban = 1; 
+kich_ban = 3; 
 
 % =========================================================================
 % QUY TRÌNH KHỞI CHẠY HỆ THỐNG
@@ -43,6 +43,10 @@ if kich_ban == 1
 elseif kich_ban == 2
     fprintf('>> Đang thực hiện Kịch bản 2: Mạng đa đoạn qua hệ thống Router (4 nút)...\n');
     csma_cd_multi(cfg);
+
+elseif kich_ban == 3
+    fprintf('>> Đang thực hiện Kịch bản 3: Bus chung N nút...\n');
+    csma_cd_busN(cfg);
     
 else
     error('Lỗi: Kịch bản lựa chọn không hợp lệ! Vui lòng chỉ chọn số 1 hoặc 2.');
